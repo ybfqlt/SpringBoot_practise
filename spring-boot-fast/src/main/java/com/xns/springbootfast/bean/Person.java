@@ -26,7 +26,7 @@ import java.util.Map;
  *
  *  @ConfigurationProperties(prefix = "person")默认从全局配置文件中获取值
  */
-@PropertySource(value={"classpath:person.properties"})
+/*@PropertySource(value={"classpath:person.properties"})*/
 @Component
 @ConfigurationProperties(prefix = "person")
 /*@Validated*/
