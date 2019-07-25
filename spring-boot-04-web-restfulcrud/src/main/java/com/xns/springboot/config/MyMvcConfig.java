@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Created by xns
  */
 
-@EnableWebMvc
+//@EnableWebMvc
 //使用webMvcConfigurerAdapter可以来扩展SpringMVC功能
 @Configuration
 public class MyMvcConfig  implements WebMvcConfigurer {
