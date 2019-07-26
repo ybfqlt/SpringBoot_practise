@@ -53,14 +53,14 @@
         <div th:replace="~{commons/bar::#sidebar(activeUri='emps')}"></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <form>
+            <form th:action="@{/emp}" method="post">
                 <div class="form-group">
                     <label>LastName</label>
-                    <input type="text" class="form-control" placeholder="zhangsan">
+                    <input name="lastName" type="text" class="form-control" placeholder="zhangsan">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control" placeholder="zhangsan@xns.com">
+                    <input name="email" type="email" class="form-control" placeholder="zhangsan@xns.com">
                 </div>
                 <div class="form-group">
                     <label>Gender</label><br/>
@@ -76,17 +76,14 @@
                 <div class="form-group">
                     <!--部门-->
                     <label>department</label>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <!--提交的是部门id-->
+                    <select class="form-control" name="department.id">
+                        <option th:value="${dept.id}" th:each="dept:${depts}" th:text="${dept.departmentName}">[[${dept.departName}]]</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>birth</label>
-                    <input type="text" class="form-control" placeholder="zhangsan">
+                    <input name="birth" type="text" class="form-control" placeholder="2019/08/24">
                 </div>
                 <button type="submit" class="btn btn-primary">添加</button>
             </form>

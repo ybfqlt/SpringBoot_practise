@@ -39,7 +39,7 @@ public class EmployeeDao {
 		employees.put(employee.getId(), employee);
 	}
 
-	//查询所有员工
+	//查询所有员工z
 	public Collection<Employee> getAll(){
 		return employees.values();
 	}
