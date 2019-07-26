@@ -23,11 +23,11 @@ public class EmployeeController {
 
     //查询所有员工返回列表页面
     @GetMapping("/emps")
-    public String list(Model model){
+    public String list(Model model) {
 
         Collection<Employee> employees = employeeDao.getAll();
         //放在请求域中
-        model.addAttribute("emps",employees);
+        model.addAttribute("emps", employees);
         /**
          * thymeleaf默认就会拼串
          * public static final String DEFAULT_PREFIX = "classpath:/templates/";
@@ -35,5 +35,11 @@ public class EmployeeController {
          * classpath:/templates/xxxx.html
          */
         return "emp/list";
+    }
+    //来到员工添加页面
+    @GetMapping("/emp")
+    public String toAddPage(){
+        //来到添加页面
+        return "emp/add";
     }
 }
