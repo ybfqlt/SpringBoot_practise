@@ -55,12 +55,28 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <form>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    <label>LastName</label>
+                    <input type="text" class="form-control" placeholder="zhangsan">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="zhangsan@xns.com">
+                </div>
+                <div class="form-group">
+                    <label>Gender</label><br/>
+                    <div class="form-check form-check-inline">
+                        <input class="from-check-input" type="radio" name="gender" value="1">
+                        <label class="form-check-label">男</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="from-check-input" type="radio" name="gender" value="0">
+                        <label class="form-check-label">女</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!--部门-->
+                    <label>department</label>
+                    <select class="form-control">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -69,19 +85,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                    <label>birth</label>
+                    <input type="text" class="form-control" placeholder="zhangsan">
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
+                <button type="submit" class="btn btn-primary">添加</button>
             </form>
         </main>
     </div>
