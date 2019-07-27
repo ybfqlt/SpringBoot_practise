@@ -77,29 +77,40 @@
                                     <td th:text="${emp.department.departmentName}"></td>
                                     <td th:text="${#dates.format(emp.birth, 'yyyy-MM-dd HH:mm')}"></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.id}">编辑</a>
-                                        <buttom class="btn btn-sm btn-danger">删除</buttom>
+                                        <a class="btn btn-sm btn-primary" th:href="@{'/emp/' + ${emp.id}}">编辑</a>
+										<button th:attr="del_uri=@{/emp/}+${emp.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
                                     </td>
                                 </tr>
                             </tbody>
 						</table>
 					</div>
 				</main>
+				<form id="deleteEmpForm" method="post">
+					<input type="hidden" name="_method" value="delete"/>
+				</form>
 			</div>
 		</div>
 
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/esm/popper.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
 
 		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js"></script>
+		<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
 		<script>
 			feather.replace()
 		</script>
+	<script>
+		$(".deleteBtn").click(function () {
+			//删除当前员工的,把表单的地址改为我们要删除的
+			$("#deleteEmpForm").attr("action",$(this).attr("del_uri")).submit();
+			//取消掉按钮的默认行为
+			return false;
+		});
+	</script>
 
 		<!-- Graphs -->
 		<script type="text/javascript" src="asserts/js/Chart.min.js"></script>
