@@ -42,8 +42,7 @@ public class MyMvcConfig  implements WebMvcConfigurer {
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 //静态资源；*.css，*.js
-                //SpringBoot已经做好了静态资源映射，我们不需要管它，静态资源能正常访问
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html","/","/user/login","/asserts/**","/webjars/**");
+                /*registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html","/","/user/login","/asserts/**","/webjars/**");*/
             }
         };
         return adapter;
