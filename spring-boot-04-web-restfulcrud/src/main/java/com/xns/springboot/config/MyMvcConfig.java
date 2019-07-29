@@ -1,7 +1,9 @@
 package com.xns.springboot.config;
 
-import com.xns.springboot.component.LoginHandlerInterceptor;
 import com.xns.springboot.component.MyLocaleResolver;
+import org.springframework.boot.web.server.ConfigurableWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -21,6 +23,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //使用webMvcConfigurerAdapter可以来扩展SpringMVC功能
 @Configuration
 public class MyMvcConfig  implements WebMvcConfigurer {
+
+    @Bean    //把它加到容器中,这样SpringBoot才能知道它的存在
+    public WebServerFactoryCustomizer webServerFactoryCustomizer(){
+        return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>(){
+            @Override
+            public void customize(ConfigurableWebServerFactory factory){
+                factory.setPort(8083);
+            }
+        };
+    }
+
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //super.addViewControllers(registry);
