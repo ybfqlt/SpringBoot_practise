@@ -19,7 +19,7 @@
     </properties>
 
     <dependencies>
-        <!--引入wen模块-->
+        <!--引入web模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
