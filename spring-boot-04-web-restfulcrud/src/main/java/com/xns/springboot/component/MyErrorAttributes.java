@@ -37,7 +37,6 @@ public class MyErrorAttributes extends DefaultErrorAttributes {
     @Override
     public Map<String, Object> getErrorAttributes(WebRequest webRequest, boolean includeStackTrace) {
         Map<String,Object> map = super.getErrorAttributes(webRequest,includeStackTrace);
-        map.get("exception");
         map.put("company","xns");
 
         //我们异常处理器携带的数据

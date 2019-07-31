@@ -33,7 +33,7 @@ public class MyServerConfig {
     }
 
     @Bean
-    public FilterRegistrationBean myFilter(){
+    public FilterRegistrationBean  cvyFilter(){
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(new MyFilter());
         registrationBean.setUrlPatterns(Arrays.asList("/hello","/myServlet"));

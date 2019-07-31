@@ -30,7 +30,7 @@ public class MyExceptionHandler {
     }*/
 
 
-    @ExceptionHandler(UserNotExistException.class)
+    @ExceptionHandler(UserNotExistException.class) //handleException就会处理所有 Controller层抛出的UserNotExistException及其子类的异常
     public String handleException(Exception e, HttpServletRequest request){
         Map<String,Object> map = new HashMap<>();
         //传入我们自己的错误状态码 4xx,5xx等
