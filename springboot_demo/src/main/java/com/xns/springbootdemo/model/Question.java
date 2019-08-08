@@ -10,7 +10,7 @@ public class Question {
     private Integer id;
     private String title;
     private String description;
-    private String tags;
+    private String tag;
     private Long gmtCreate;
     private Long gmtModified;
     private Integer creator;
@@ -42,12 +42,12 @@ public class Question {
         this.description = description;
     }
 
-    public String getTags() {
-        return tags;
+    public String getTag() {
+        return tag;
     }
 
-    public void setTags(String tags) {
-        this.tags = tags;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public Long getGmtCreate() {
