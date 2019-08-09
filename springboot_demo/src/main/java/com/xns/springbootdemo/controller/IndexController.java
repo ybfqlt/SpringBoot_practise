@@ -1,10 +1,7 @@
 package com.xns.springbootdemo.controller;
 
 import com.xns.springbootdemo.dto.PaginationDTO;
-import com.xns.springbootdemo.dto.QuestionDTO;
-import com.xns.springbootdemo.mapper.QuestionMapper;
 import com.xns.springbootdemo.mapper.UserMapper;
-import com.xns.springbootdemo.model.Question;
 import com.xns.springbootdemo.model.User;
 import com.xns.springbootdemo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @Classname HelloController
@@ -38,7 +32,7 @@ public class IndexController {
     public String index(HttpServletRequest request,
                         Model model,
                         @RequestParam(name="page",defaultValue="1") Integer page,
-                        @RequestParam(name="size",defaultValue ="5") Integer size){
+                        @RequestParam(name="size",defaultValue ="2") Integer size){
         Cookie[] cookies = request.getCookies();
         if(cookies != null && cookies.length != 0 ) {
             for (Cookie cookie : cookies) {
