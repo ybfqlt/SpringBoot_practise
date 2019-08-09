@@ -1,5 +1,6 @@
 package com.xns.springbootdemo.controller;
 
+import com.xns.springbootdemo.dto.PaginationDTO;
 import com.xns.springbootdemo.dto.QuestionDTO;
 import com.xns.springbootdemo.mapper.QuestionMapper;
 import com.xns.springbootdemo.mapper.UserMapper;
@@ -34,7 +35,10 @@ public class IndexController {
     private QuestionService questionService;
 
     @GetMapping("/")
-    public String index(HttpServletRequest request,Model model){
+    public String index(HttpServletRequest request,
+                        Model model,
+                        @RequestParam(name="page",defaultValue="1") Integer page,
+                        @RequestParam(name="size",defaultValue ="5") Integer size){
         Cookie[] cookies = request.getCookies();
         if(cookies != null && cookies.length != 0 ) {
             for (Cookie cookie : cookies) {
@@ -48,8 +52,8 @@ public class IndexController {
                 }
             }
         }
-        List<QuestionDTO> questionList = questionService.list();
-        model.addAttribute("questions",questionList);
+        PaginationDTO pagination = questionService.list(page,size);
+        model.addAttribute("pagination",pagination);
         return "index";
     }
 }
